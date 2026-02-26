@@ -11,11 +11,11 @@
     <string name="save">Save</string>
 
     <string-array name="ac_makers">
+        <item>Corona</item>
         <item>Daikin</item>
+        <item>Hitachi</item>
         <item>Mitsubishi Electric</item>
         <item>Mitsubishi Heavy Industries</item>
-        <item>Hitachi</item>
-        <item>Corona</item>
         <item>Panasonic</item>
         <item>Toshiba</item>
     </string-array>
