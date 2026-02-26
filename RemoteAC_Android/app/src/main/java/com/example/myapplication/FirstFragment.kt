@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentFirstBinding
 
 /**
@@ -14,27 +16,38 @@ import com.example.myapplication.databinding.FragmentFirstBinding
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val viewModel: ConfigViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initially show the empty view since no configurations are available
-        binding.configList.visibility = View.GONE
-        binding.emptyView.visibility = View.VISIBLE
+        val adapter = ConfigAdapter { config ->
+            Toast.makeText(context, "Clicked: ${config.name}", Toast.LENGTH_SHORT).show()
+        }
+        
+        binding.configList.adapter = adapter
+        binding.configList.layoutManager = LinearLayoutManager(context)
+
+        viewModel.configs.observe(viewLifecycleOwner) { configs ->
+            if (configs.isEmpty()) {
+                binding.configList.visibility = View.GONE
+                binding.emptyView.visibility = View.VISIBLE
+            } else {
+                binding.configList.visibility = View.VISIBLE
+                binding.emptyView.visibility = View.GONE
+                adapter.submitList(configs)
+            }
+        }
     }
 
     override fun onDestroyView() {
