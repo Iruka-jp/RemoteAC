@@ -32,7 +32,17 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
+        // Set up the spinner with AC makers
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.ac_makers,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerMaker.adapter = adapter
+
+        binding.buttonSave.setOnClickListener {
+            // For now, just navigate back to the list
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }

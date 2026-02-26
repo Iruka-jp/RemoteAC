@@ -32,9 +32,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+        // Initially show the empty view since no configurations are available
+        binding.configList.visibility = View.GONE
+        binding.emptyView.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
