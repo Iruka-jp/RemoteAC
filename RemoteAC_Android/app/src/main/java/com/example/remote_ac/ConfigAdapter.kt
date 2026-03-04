@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.remoteAC.databinding.ConfigItemBinding
+import com.example.remote_ac.databinding.ConfigItemBinding
 
 class ConfigAdapter(private val onClick: (Config) -> Unit) :
     ListAdapter<Config, ConfigAdapter.ConfigViewHolder>(ConfigDiffCallback) {

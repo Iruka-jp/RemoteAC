@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.remoteAC.databinding.FragmentFirstBinding
+import com.example.remote_ac.databinding.FragmentFirstBinding
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

@@ -7,22 +7,49 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.myapplication.FirstFragment"
+        android:name="com.example.remote_ac.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_FirstFragment_to_WifiPairingFragment"
+            app:destination="@id/WifiPairingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/WifiPairingFragment"
+        android:name="com.example.remote_ac.WifiPairingFragment"
+        android:label="Pair New Remote"
+        tools:layout="@layout/fragment_wifi_pairing">
+        <action
+            android:id="@+id/action_WifiPairingFragment_to_IotWebViewFragment"
+            app:destination="@id/IotWebViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/IotWebViewFragment"
+        android:name="com.example.remote_ac.IotWebViewFragment"
+        android:label="Configure IoT WiFi"
+        tools:layout="@layout/fragment_iot_web_view">
+        <argument
+            android:name="macAddress"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_IotWebViewFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.myapplication.SecondFragment"
+        android:name="com.example.remote_ac.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
+        <argument
+            android:name="macAddress"
+            app:argType="string" />
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
