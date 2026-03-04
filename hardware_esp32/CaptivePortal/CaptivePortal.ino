@@ -18,7 +18,8 @@ void setup() {
     // This fetches SSID and pass from NVS and tries to connect.
     // If it fails, it starts an AP with the specified name.
     bool res;
-    res = wm.autoConnect("RemoteAC", "remote123"); 
+    String nw_name = "RemoteAC_" + WiFi.macAddress();
+    res = wm.autoConnect(nw_name.c_str(), "remote123"); 
 
     if(!res) {
         Serial.println("Failed to connect or hit timeout");

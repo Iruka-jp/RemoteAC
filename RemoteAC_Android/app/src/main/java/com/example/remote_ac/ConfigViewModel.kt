@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.remoteAC
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

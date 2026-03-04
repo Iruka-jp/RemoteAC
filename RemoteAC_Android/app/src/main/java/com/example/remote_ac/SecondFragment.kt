@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.remoteAC
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.myapplication.databinding.FragmentSecondBinding
+import com.example.remoteAC.databinding.FragmentSecondBinding
 import kotlin.text.lowercase
 
 /**
