@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 data class Config(
     val name: String,

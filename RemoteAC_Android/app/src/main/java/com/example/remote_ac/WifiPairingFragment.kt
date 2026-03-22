@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 import android.Manifest
 import android.content.BroadcastReceiver
@@ -26,7 +26,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.remoteAC.databinding.FragmentWifiPairingBinding
+import com.example.remote_ac.databinding.FragmentWifiPairingBinding
 
 class WifiPairingFragment : Fragment() {
 
@@ -43,7 +43,8 @@ class WifiPairingFragment : Fragment() {
         if (permissions.all { it.value }) {
             startWifiScan()
         } else {
-            Toast.makeText(context, "Permissions required to scan WiFi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Permissions required to scan WiFi. Closing app.", Toast.LENGTH_SHORT).show()
+            requireActivity().finish()
         }
     }
 
@@ -105,6 +106,10 @@ class WifiPairingFragment : Fragment() {
     }
 
     private fun scanSuccess() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            checkPermissionsAndScan()
+            return
+        }
         val results = wifiManager.scanResults
         wifiNetworks.clear()
         wifiNetworks.addAll(results.filter { it.SSID.startsWith("RemoteAC_") })

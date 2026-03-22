@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,7 +12,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.remoteAC.databinding.FragmentIotWebViewBinding
+import com.example.remote_ac.databinding.FragmentIotWebViewBinding
 
 class IotWebViewFragment : Fragment() {
 

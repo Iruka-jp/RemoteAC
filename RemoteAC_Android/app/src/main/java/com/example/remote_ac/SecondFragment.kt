@@ -1,4 +1,4 @@
-package com.example.remoteAC
+package com.example.remote_ac
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.remoteAC.databinding.FragmentSecondBinding
+import androidx.navigation.fragment.navArgs
+import com.example.remote_ac.databinding.FragmentSecondBinding
 import kotlin.text.lowercase
 
 /**
@@ -20,6 +21,7 @@ class SecondFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ConfigViewModel by activityViewModels()
+    private val args: SecondFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,18 +45,9 @@ class SecondFragment : Fragment() {
         binding.buttonSave.setOnClickListener {
             val name = binding.editTextName.text.toString()
             val maker = binding.spinnerMaker.selectedItem.toString()
-            val resourceId = when (maker.lowercase().replace(" ", "_")) {
-                "corona" -> R.drawable.corona
-                "daikin" -> R.drawable.daikin
-                "hitachi" -> R.drawable.hitachi
-                "mitsubishi_electric" -> R.drawable.mitsubishi_electric
-                "mitsubishi_heavy_industries" -> R.drawable.mitsubishi_heavy_industries
-                "panasonic" -> R.drawable.panasonic
-                "toshiba" -> R.drawable.toshiba
-                else -> 0 // 0 indicates not found, triggers your fallback
-            }
+            
             if (name.isNotBlank()) {
-                viewModel.addConfig(Config(name, maker, resourceId))
+                viewModel.addConfig(Config(name, maker, args.macAddress))
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
             } else {
                 binding.nameLayout.error = "Name cannot be empty"
