@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <!-- To prevent the circular mask from cropping a wide logo, we make the
+         icon size 1.5x the screen width. For a standard 360dp width,
+         540dp ensures the visible circle covers the full width. -->
+    <dimen name="splash_icon_size">540dp</dimen>
 </resources>
