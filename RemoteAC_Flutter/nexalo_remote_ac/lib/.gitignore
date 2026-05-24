@@ -1,0 +1,43 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate.log
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code related
+.vscode/
+
+# Flutter/Dart/Pub related
+# Rules for Android Studio/IntelliJ
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Symbol ocean for profiling
+/ios/Flutter/ephemeral/
+/ios/Flutter/GeneratedPluginRegistrant.h
+/ios/Flutter/GeneratedPluginRegistrant.m
+/linux/flutter/ephemeral/
+/macos/flutter/ephemeral/
+/windows/flutter/ephemeral/
+
+# Avoid committing private tracking files
+ephemeral/
+
+# Generated crash reports
+flutter_*.png
+flutter_*.abstract
