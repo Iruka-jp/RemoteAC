@@ -1,7 +1,7 @@
 {
   "name": "nexalo_remote_ac",
   "version": "1.0.0",
-  "description": "A new Flutter project.",
+  "description": "Nexalo Remote AC is a mobile application that allows users to control their air conditioners remotely.",
   "main": "index.js",
   "directories": {
     "lib": "lib",
